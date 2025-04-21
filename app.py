@@ -18,6 +18,9 @@ def login():
 def expense():
     return render_template("expense.html")
 
+@app.get('/spendinglist')
+def list():
+    return render_template("spendinglist.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
