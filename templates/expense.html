@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="expense-form-container bg-white">
+          <div class="expense-form-header">
+            <h3 class="mb-0"><i class="fas fa-receipt me-2"></i>Add New Expense</h3>
+          </div>
+          
+          <form class="expense-form-body">
+            <!-- Amount and Date Row -->
+            <div class="row expense-row-spacing">
+              <div class="col-md-6 mb-3 mb-md-0">
+                <label for="expenseAmountField" class="expense-form-label expense-required-field">Amount</label>
+                <div class="input-group">
+                  <span class="input-group-text expense-input-group-text">$</span>
+                  <input type="number" class="form-control" id="expenseAmountField" step="0.01" min="0.01" required placeholder="0.00">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="expenseDateField" class="expense-form-label expense-required-field">Date</label>
+                <input type="date" class="form-control" id="expenseDateField" required value="">
+              </div>
+            </div>
+            
+            <!-- Description -->
+            <div class="expense-row-spacing">
+              <label for="expenseDescField" class="expense-form-label expense-required-field">Description</label>
+              <input type="text" class="form-control" id="expenseDescField" required placeholder="Enter expense description">
+            </div>
+            
+            <!-- Category and Payment Method Row -->
+            <div class="row expense-row-spacing">
+              <div class="col-md-6 mb-3 mb-md-0">
+                <label for="expenseCategoryField" class="expense-form-label expense-required-field">Category</label>
+                <select class="form-select" id="expenseCategoryField" required>
+                  <option value="" selected disabled>Select a category</option>
+                  <option value="food">Food & Dining</option>
+                  <option value="travel">Travel & Transportation</option>
+                  <option value="shopping">Shopping</option>
+                  <option value="family">Family & Friends</option>
+                  <option value="self">Personal Care</option>
+                  <option value="health">Healthcare</option>
+                  <option value="entertainment">Entertainment</option>
+                  <option value="education">Education</option>
+                  <option value="bills">Bills & Utilities</option>
+                  <option value="housing">Housing & Rent</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="expensePaymentField" class="expense-form-label expense-required-field">Payment Method</label>
+                <select class="form-select" id="expensePaymentField" required>
+                  <option value="" selected disabled>Select payment method</option>
+                  <option value="credit">Credit Card</option>
+                  <option value="debit">Debit Card</option>
+                  <option value="cash">Cash</option>
+                  <option value="bank">Bank Transfer</option>
+                  <option value="mobile">Mobile Payment</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            
+            <!-- Is it recurring? -->
+            <div class="expense-row-spacing">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="expenseRecurringField">
+                <label class="form-check-label" for="expenseRecurringField">
+                  This is a recurring expense
+                </label>
+              </div>
+            </div>
+            
+            <!-- Notes -->
+            <div class="expense-row-spacing">
+              <label for="expenseNotesField" class="expense-form-label">Additional Notes</label>
+              <textarea class="form-control expense-notes-area" id="expenseNotesField" rows="2" placeholder="Add any additional details (optional)"></textarea>
+            </div>
+            
+            <!-- Receipt Upload -->
+            <div class="expense-row-spacing">
+              <label for="expenseReceiptField" class="expense-form-label">Receipt Image (optional)</label>
+              <input class="form-control" type="file" id="expenseReceiptField" accept="image/*">
+              <div class="form-text">Upload a photo of your receipt for your records</div>
+            </div>
+            
+            <!-- Form Buttons -->
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn expense-btn-cancel">Cancel</button>
+              <button type="submit" class="btn expense-btn-submit text-white">Save Expense</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
